@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Juvena QSAR Lib API Reference &#8212; QSAR 0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to QSAR’s documentation!" href="index.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>QSAR 0.0.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Juvena QSAR Lib API Reference</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Welcome to QSAR’s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="module-QSAR">
+<span id="juvena-qsar-lib-api-reference"></span><h1>Juvena QSAR Lib API Reference<a class="headerlink" href="#module-QSAR" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-QSAR.autoencoder"></span><dl class="py function">
+<dt id="QSAR.autoencoder.model">
+<code class="sig-prename descclassname">QSAR.autoencoder.</code><code class="sig-name descname">model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conv_dim</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">tensorflow.keras.layers.LeakyReLU</span></em>, <em class="sig-param"><span class="n">initialization</span><span class="o">=</span><span class="default_value">'he_normal'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/autoencoder.html#model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.autoencoder.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>create convolutionary autoencoder model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conv_dim</strong> (<em>int</em>) – conv dimension</p></li>
+<li><p><strong>activation</strong> (<em>class</em><em>, </em><em>optional</em>) – activation function, defaults to         tf.keras.layers.LeakyReLU(alpha=0.3)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>convolutional auto-encoder model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-QSAR.preprocessing"></span><dl class="py function">
+<dt id="QSAR.preprocessing.throw_na">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">throw_na</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">perc</span><span class="o">=</span><span class="default_value">0.7</span></em>, <em class="sig-param"><span class="n">na_nine</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#throw_na"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.throw_na" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove columns if na, which include true na and also old fashion na -9999, over certain percentage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input pandas data.frame</p></li>
+<li><p><strong>perc</strong> (<em>float</em><em>, </em><em>optional</em>) – percentage of missing values, defaults to 0.7</p></li>
+<li><p><strong>na_nine</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether using old-fashion na -9999 in data, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data frame without na</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.throw_zero">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">throw_zero</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">perc</span><span class="o">=</span><span class="default_value">0.7</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#throw_zero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.throw_zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove column if zero values over certain percentage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input pandas data.frame</p></li>
+<li><p><strong>perc</strong> (<em>float</em><em>, </em><em>optional</em>) – percentage of missing values, defaults to 0.7</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>processed data frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.remove_inf_fillna">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">remove_inf_fillna</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">stats</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">na_nine</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">train</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">median</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#remove_inf_fillna"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.remove_inf_fillna" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes infinities, replaces with max and min value, and fill Na with stats</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input pandas data.frame</p></li>
+<li><p><strong>stats</strong> (<em>data frames</em>) – statistics container have min, max and median of each column,
+defaults to None</p></li>
+<li><p><strong>na_nine</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether na is old fashion -9999, defaults to False</p></li>
+<li><p><strong>train</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether is training dataset, defaults to False</p></li>
+<li><p><strong>median</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether fill na with median, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>processed data frame + stats calculated from training dataset (max, min and median)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data frames</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.remove_outliers">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">remove_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">stats</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cutoff_iqr</span><span class="o">=</span><span class="default_value">1.5</span></em>, <em class="sig-param"><span class="n">train</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#remove_outliers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.remove_outliers" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove outliers using 1.5 inter-quantile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input data frame</p></li>
+<li><p><strong>stats</strong> (<em>data frame</em><em>, </em><em>optional</em>) – stats: statistics container have min, max and median of each column,, defaults to None</p></li>
+<li><p><strong>cutoff_iqr</strong> (<em>float</em><em>, </em><em>optional</em>) – outlier cutoff param, defaults to 1.5</p></li>
+<li><p><strong>train</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether it’s training dataset, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>processed data frame by removing outliers</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.minmax">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">minmax</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">a</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">b</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">scaler</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dtype</span><span class="o">=</span><span class="default_value">'float32'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#minmax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.minmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>min max normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input data frame</p></li>
+<li><p><strong>a</strong> (<em>int</em><em>, </em><em>optional</em>) – low end of scaling range, defaults to 0</p></li>
+<li><p><strong>b</strong> (<em>int</em><em>, </em><em>optional</em>) – high end of scaling range, defaults to 1</p></li>
+<li><p><strong>scaler</strong> (<em>class</em><em>, </em><em>optional</em>) – other type of scaler, defaults to None</p></li>
+<li><p><strong>dtype</strong> (<em>str</em><em>, </em><em>optional</em>) – data type, defaults to ‘float32’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>normalized data set</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.find_labels">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">find_labels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em>, <em class="sig-param"><span class="n">cat</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#find_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.find_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that takes in dictionary of categories and classifies rows of         series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>cat</strong> (<em>dictionary</em>) – dictionary of categories</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>series</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.process_prog">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">process_prog</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#process_prog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.process_prog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some features in the bio chemical features file need string processing
+This function takes these columns marked that contain information about prognostics
+It processes the string and makes it into categorical features
+:param df: input data frame for columns containing prognostic features
+:type df: data frame
+:return: [description] Dataframe of processed categorical types
+:rtype: [type] dataframe</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.fill_missing_one_hot">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">fill_missing_one_hot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">columns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#fill_missing_one_hot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.fill_missing_one_hot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding missing columns with zero columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input data frame</p></li>
+<li><p><strong>columns</strong> (<em>list</em>) – column names</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data frame with zero columns added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.create_subcell_df">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">create_subcell_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#create_subcell_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.create_subcell_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that processing cell biology data file
+This function preprocesses the subcellular location feature from cell biology file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>data frame</em>) – input cell biology data frame</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sub-cellular location data frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.preprocessing.reshape">
+<code class="sig-prename descclassname">QSAR.preprocessing.</code><code class="sig-name descname">reshape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">features</span><span class="o">=</span><span class="default_value">'clean'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/preprocessing.html#reshape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.preprocessing.reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function reshapes the dataframe for input into the autoencoder.
+The padding is required because the autoencoder loses some features when decoding.
+This is because the maxpooling will cut feature length in half, and when there are odd numbers, it wil round up</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>data frame</em>) – input data frame</p></li>
+<li><p><strong>features</strong> (<em>str</em><em>, </em><em>optional</em>) – whether the data frame is cleaned or raw, defaults to ‘clean’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – Only allow clean and raw as input</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>reshaped data frame that can fit into convolutional autoencoder.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-QSAR.classifier"></span><dl class="py function">
+<dt id="QSAR.classifier.neuralNetworkClassifier">
+<code class="sig-prename descclassname">QSAR.classifier.</code><code class="sig-name descname">neuralNetworkClassifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/classifier.html#neuralNetworkClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.classifier.neuralNetworkClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function builds the neural network classifier
+#? Why some layers have dropout after, some don’t? More dropout made results worse</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>classifier layers</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>neural network model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-QSAR.helper"></span><dl class="py function">
+<dt id="QSAR.helper.get_stats_file">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">get_stats_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; object<a class="reference internal" href="_modules/QSAR/helper.html#get_stats_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.get_stats_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in statistics learnt during training from local file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – path points to the file location</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>stat data frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.helper.get_scaler">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">get_scaler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; object<a class="reference internal" href="_modules/QSAR/helper.html#get_scaler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.get_scaler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in scaler
+This function retrieves a min-max scaler object which has been fit on original data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – path points to the file location</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>scaler</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.helper.process_ed_csv">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">process_ed_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_ed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/helper.html#process_ed_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.process_ed_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes the evolutionary distance dataframe and processes it
+It fills Nan values with zeros, and removes outliers
+Finally, it scales it and gives the result</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_ed</strong> – pandas dataframe for evolutionary distance file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas dataframe for float type, integer type data, and uniprots</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.helper.process_phy_csv">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">process_phy_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_phy</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/helper.html#process_phy_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.process_phy_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>process biochemical features csv file
+It removes nan values, removes outliers and scales the data
+:param data_phy: dataframe for the bio chemical feature file
+:type data_phy: dataframe
+:return: [description] Pandas dataframe for float type, integer type and uniprots
+:rtype: [type] dataframe, dataframe, series</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.helper.process_exp_csv">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">process_exp_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_exp</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/helper.html#process_exp_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.process_exp_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>process gene expression csv file
+Takes in the gene expression csv. Removes nan values and outliers
+It also preprocesses the categorical datatypes
+:param data_exp: [description] dataframe for gene expression
+:type data_exp: [type] dataframe
+:return: [description] dataframe for numerical, categorical and then uniprots
+:rtype: [type] dataframe, dataframe, series</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.helper.process_bio_csv">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">process_bio_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_bio</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/helper.html#process_bio_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.process_bio_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary] Processes the cell-biology file
+It extracts the category column and processes it
+:param data_bio: [description] dataframe for the cell-biology file
+:type data_bio: [type] dataframe
+:return: [description] processed, one hot encoded categorical features
+:rtype: [type] dataframe</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.helper.find_rows_with_uniprots">
+<code class="sig-prename descclassname">QSAR.helper.</code><code class="sig-name descname">find_rows_with_uniprots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">find_uni</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/helper.html#find_rows_with_uniprots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.helper.find_rows_with_uniprots" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]
+This function picks out only certain uniprots from a csv
+:param path: path to a csv
+:type path: [type] string
+:param find_uni: [description] A list of uniprots that we want to find in the csv
+:type find_uni: [type] list
+:return: [description] dataframe that has only the uniprots that we have mentioned
+:rtype: [type] dataframe</p>
+</dd></dl>
+
+<span class="target" id="module-QSAR.loss"></span><dl class="py function">
+<dt id="QSAR.loss.pairwise_distance">
+<code class="sig-prename descclassname">QSAR.loss.</code><code class="sig-name descname">pairwise_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature</span></em>, <em class="sig-param"><span class="n">squared</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/loss.html#pairwise_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.loss.pairwise_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the pairwise distance matrix with numerical stability.
+output[i, j] = || feature[i, :] - feature[j, :] ||_2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature</strong> (<em>2-D tensor</em>) – 2-D Tensor of size [number of data, feature dimension].</p></li>
+<li><p><strong>squared</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether or not to square the pairwise distances, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pairwise_distances</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>2-D Tensor of size [number of data, number of data]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.loss.masked_maximum">
+<code class="sig-prename descclassname">QSAR.loss.</code><code class="sig-name descname">masked_maximum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">mask</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/loss.html#masked_maximum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.loss.masked_maximum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the axis wise maximum over chosen elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>tensor</em>) – input data, 2-D float <cite>Tensor</cite> of size [n, m].</p></li>
+<li><p><strong>mask</strong> (<em>tensor</em>) – mask tensor, 2-D Boolean <cite>Tensor</cite> of size [n, m].</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em>, </em><em>optional</em>) – [The dimension over which to compute the maximum, defaults to 1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>masked_maximums: N-D <cite>Tensor</cite>, the maximized dimension is of     size 1 after the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.loss.masked_minimum">
+<code class="sig-prename descclassname">QSAR.loss.</code><code class="sig-name descname">masked_minimum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">mask</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/loss.html#masked_minimum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.loss.masked_minimum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the axis wise minimum over chosen elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>tensor</em>) – input data, 2-D float <cite>Tensor</cite> of size [n, m].</p></li>
+<li><p><strong>mask</strong> (<em>tensor</em>) – mask tensor, 2-D Boolean <cite>Tensor</cite> of size [n, m].</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em>, </em><em>optional</em>) – [The dimension over which to compute the minimum, defaults to 1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>masked_maximums: N-D <cite>Tensor</cite>, the minimized dimension is of     size 1 after the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="QSAR.loss.triplet_semihard_loss">
+<code class="sig-prename descclassname">QSAR.loss.</code><code class="sig-name descname">triplet_semihard_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">labels</span></em>, <em class="sig-param"><span class="n">embeddings</span></em>, <em class="sig-param"><span class="n">margin</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/QSAR/loss.html#triplet_semihard_loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#QSAR.loss.triplet_semihard_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the triplet loss with semi-hard negative mining.
+The loss encourages the positive distances (between a pair of embeddings with
+the same labels) to be smaller than the minimum negative distance among
+which are at least greater than the positive distance plus the margin constant
+(called semi-hard negative) in the mini-batch. If no such negative exists,
+uses the largest negative distance instead.
+See: <a class="reference external" href="https://arxiv.org/abs/1503.03832">https://arxiv.org/abs/1503.03832</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels</strong> (<em>1-D tf.int32 tensor</em>) – 1-D tf.int32 <cite>Tensor</cite> with shape [batch_size] of multiclass     integer labels.</p></li>
+<li><p><strong>embeddings</strong> (<em>2-D float tensor</em>) – 2-D float <cite>Tensor</cite> of embedding vectors. Embeddings should    be l2 normalized.</p></li>
+<li><p><strong>margin</strong> (<em>float</em><em>, </em><em>optional</em>) – margin term in the loss definition, defaults to 1.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>triplet_loss</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tf.float32 scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Welcome to QSAR’s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Xi Chen.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+    </div>
+  </body>
+</html>
